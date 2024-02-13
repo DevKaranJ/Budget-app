@@ -84,11 +84,9 @@ Devise.setup do |config|
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
 
-
   # ==> Redirect after sign up
-# By default, Devise redirects to the root path after sign up. You can customize the redirect path using this option.
-config.after_sign_up_path_for = '/users/sign_in' # Change this to your desired login path
-
+  # By default, Devise redirects to the root path after sign up. You can customize the redirect path using this option.
+  config.after_sign_up_path_for = '/users/sign_in' # Change this to your desired login path
 
   # The realm used in Http Basic Authentication. 'Application' by default.
   # config.http_authentication_realm = 'Application'
