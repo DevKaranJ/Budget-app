@@ -1,49 +1,40 @@
+<%= stylesheet_link_tag 'login', media: 'all' %>
 
-<!-- Navigation bar with back button -->
-<nav class="navbar">
-  <a href="<%= splash_index_path %>" class="back-button">Back</a>
-
-  <h2>Register</h2>
-
-  <!-- Next button -->
-  <div class="actions">
-    <button type="submit">Next</button>
-  </div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'needs-validation' }, role: 'form', novalidate: true) do |f| %>
+  <nav class="navbar">
+    <a href="<%= splash_index_path %>" class="back-button">
+      <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+    </a>
+    <h2>Register</h2>
+    <div class="actions">
+      <%= f.submit "Sign up", class: "login-button" %>
+    </div>
   </nav>
 
+  <div class="container">
 
-<!-- User registration form -->
-<div class="container">
+    <div class="field">
+      <label for="profile_pic">Profile Picture</label><br />
+      <input type="file" id="profile_pic" name="profile_pic" class="form-control">
+    </div>
 
+    <div class="field">
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Full Name' %>
+    </div>
 
-  <!-- Profile picture upload -->
-  <div class="field">
-    <label for="profile_pic">Profile Picture</label><br />
-    <input type="file" id="profile_pic" name="profile_pic">
+    <div class="field">
+      <label for="email">Email</label><br />
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label><br />
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+    </div>
+
+    <div class="field">
+      <label for="password_confirmation">Confirm Password</label><br />
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password' %>
+    </div>
   </div>
-
-  <!-- Full name -->
-  <div class="field">
-    <label for="full_name">Full Name</label><br />
-    <input type="text" id="full_name" name="full_name">
-  </div>
-
-  <!-- Email -->
-  <div class="field">
-    <label for="email">Email</label><br />
-    <input type="email" id="email" name="email">
-  </div>
-
-  <!-- Password -->
-  <div class="field">
-    <label for="password">Password</label><br />
-    <input type="password" id="password" name="password">
-  </div>
-
-  <!-- Password confirmation -->
-  <div class="field">
-    <label for="password_confirmation">Confirm Password</label><br />
-    <input type="password" id="password_confirmation" name="password_confirmation">
-  </div>
-
-</div>
+<% end %>
