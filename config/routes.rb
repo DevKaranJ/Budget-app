@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # Conditional root route based on user authentication status
   authenticated :user do
-    root 'home#index', as: :authenticated_root
+    root 'categories#index', as: :authenticated_root
   end
 
   unauthenticated do
@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   end
 
   get 'splash/index'
+
+  resources :categories, only: [:index, :new, :create] do
+    resources :transactions, only: [:index, :new, :create]
+  end
 end

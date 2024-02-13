@@ -1,0 +1,11 @@
+<!-- app/views/categories/index.html.erb -->
+
+<h1>Categories</h1>
+
+<% @categories.each do |category| %>
+  <div>
+    <%= category.name %> - <%= category.icon %> - Total: <%= category.transactions.sum(:amount) %>
+  </div>
+<% end %>
+
+<%= link_to "Add a new category", new_category_path %>
