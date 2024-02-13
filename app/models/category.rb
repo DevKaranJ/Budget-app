@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Category < ApplicationRecord
   validates :name, :icon, presence: true
   belongs_to :user, inverse_of: :categories
