@@ -2,6 +2,7 @@
 
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
+  include CategoriesHelper
 
   def index
     @categories = current_user.categories
@@ -21,6 +22,10 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def category_total_amount(category)
+    category.transactions.sum(:amount)
+  end
 
   def category_params
     params.require(:category).permit(:name, :icon)

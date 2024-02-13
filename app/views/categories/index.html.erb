@@ -4,8 +4,9 @@
 
 <% @categories.each do |category| %>
   <div>
-    <%= category.name %> - <%= category.icon %> - Total: <%= category.transactions.sum(:amount) %>
+    <%= category.name %> - <%= category.icon %> - Total Amount: <%= category_total_amount(category) %>
+    <%= link_to "View Transactions", category_transactions_path(category) %>
   </div>
 <% end %>
 
-<%= link_to "Add a new category", new_category_path %>
+<%= link_to "Add a New Category", new_category_path %>
