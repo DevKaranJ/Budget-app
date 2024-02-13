@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag 'login', media: 'all' %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'needs-validation' }, role: 'form', novalidate: true) do |f| %>
+  <nav class="navbar">
+    <a href="<%= splash_index_path %>" class="back-button">
+      <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+    </a>
+    <h2>Register</h2>
+    <div class="actions">
+      <%= f.submit "Sign up", class: "login-button" %>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="field">
+      <label for="profile_pic">Profile Picture</label><br />
+      <input type="file" id="profile_pic" name="profile_pic" class="form-control">
+    </div>
+
+    <div class="field">
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Full Name' %>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label><br />
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label><br />
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+    </div>
+
+    <div class="field">
+      <label for="password_confirmation">Confirm Password</label><br />
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password' %>
+    </div>
+  </div>
+<% end %>

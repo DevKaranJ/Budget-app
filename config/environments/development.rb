@@ -35,7 +35,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # This configuration ensures that Devise knows where to generate links in emails (like confirmation emails) for your development environment.
+  # This configuration ensures that Devise knows where to generate links in emails
+  # (like confirmation emails) for your development environment.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
