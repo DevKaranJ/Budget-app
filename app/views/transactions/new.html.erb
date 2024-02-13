@@ -1,0 +1,22 @@
+<h1>Add a new transaction</h1>
+
+<%= form_with(model: @transaction, url: category_transactions_path(@category)) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :amount %>
+    <%= form.number_field :amount, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :categories, "Categories (select at least one)" %>
+    <%= form.collection_select(:category_ids, current_user.categories, :id, :name, { include_blank: false }, { multiple: true, class: 'form-control', required: true }) %>
+  </div>
+
+  <div>
+    <%= form.submit "Save" %>
+  </div>
+<% end %>

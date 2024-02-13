@@ -10,8 +10,34 @@
   </head>
 
   <body>
+  <% unless params[:controller] == "sessions" && (params[:action] == "new" || params[:action] == "create") || params[:controller] == "registrations" && (params[:action] == "new" || params[:action] == "create") || params[:controller] == "splash" || request.path =~ /\/users\/(sign_in|sign_up)/ %>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Your App Name</a>
+          <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to "Categories", categories_path %></li>
+            <!-- Add more navigation links here -->
+          </ul>
+        </div>
+      </nav>
+      <ul class="sidenav" id="mobile-nav">
+        <li><%= link_to "Categories", categories_path %></li>
+        <!-- Add more navigation links here -->
+      </ul>
+    </header>
+  <% end %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
+  </script>
+
   </body>
 </html>

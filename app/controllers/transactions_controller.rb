@@ -13,8 +13,8 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = @category.transactions.new(transaction_params)
-    if @transaction.save
+    @transaction = Transaction.create_with_unique_category(transaction_params[:name], transaction_params[:amount], current_user, @category.name)
+    if @transaction.persisted?
       redirect_to category_transactions_path(@category), notice: 'Transaction was successfully created.'
     else
       render :new
