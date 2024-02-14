@@ -27,11 +27,12 @@
 
   <div class="field">
     <%= form.label :icon %>
-    <%= form.text_field :icon %>
+    <%= form.select :icon, options_for_select(Dir.glob('app/assets/images/icon/*.png').map { |path| [File.basename(path, '.*').capitalize, File.basename(path)] }) %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
 </div>
