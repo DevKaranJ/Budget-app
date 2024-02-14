@@ -1,9 +1,12 @@
-<!-- app/views/transactions/index.html.erb -->
-<% content_for :title, "Transactions" %>
+<%= stylesheet_link_tag 'transaction', media: 'all' %>
 
-<h1>Transactions for <%= @category.name %></h1>
 
-<h2>Total Amount: <%= @category_total_amount %></h2>
+<nav class="navbar">
+<a href="<%= categories_path %>" class="back-button">
+  <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+</a>
+<h1> Transaction</h1>
+</nav>
 
 <% @transactions.each do |transaction| %>
   <div>
@@ -12,4 +15,3 @@
 <% end %>
 
 <%= link_to "Add a New Transaction", new_category_transaction_path(@category) %>
-<%= link_to "Back", categories_path %>

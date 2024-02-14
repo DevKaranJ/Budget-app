@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #3778c2;
+    color: #fff;
+    height: 35px;
+  }
+    
+    body {
+      font-family: 'Proxima Nova', sans-serif;
+      font-weight: 300;
+      color: #434b54;
+      background-color: #fff;
+    }

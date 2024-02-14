@@ -1,4 +1,11 @@
+<%= stylesheet_link_tag 'newforms', media: 'all' %>
+<nav class="navbar">
+<a href="<%= categories_path %>" class="back-button">
+  <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+</a>
 <h1>Add a new transaction</h1>
+</nav>
+
 
 <%= form_with(model: @transaction, url: category_transactions_path(@category)) do |form| %>
   <div>
