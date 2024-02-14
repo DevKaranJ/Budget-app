@@ -1,13 +1,18 @@
-<!-- app/views/categories/index.html.erb -->
-<% content_for :title, "Categories" %>
+<%= stylesheet_link_tag 'categories', media: 'all' %>
 
-<h1>Categories</h1>
+<% content_for :title, "Categories" %>
+<nav class="navbar">
+<a href="<%= categories_path %>" class="back-button">
+  <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+</a>
+<h1 class="category-title">Categories</h1>
+</nav>
 
 <% @categories.each do |category| %>
-  <div>
-    <%= category.name %> - <%= category.icon %> - Total Amount: <%= category_total_amount(category) %>
-    <%= link_to "View Transactions", category_transactions_path(category) %>
+  <div class="category-card">
+    <%= link_to category.name, category_transactions_path(category), class: "category-icon" %> - <%= category.name %> - Total Amount: <%= category_total_amount(category) %>
   </div>
 <% end %>
 
-<%= link_to "Add a New Category", new_category_path %>
+<%= link_to "Add a New Category", new_category_path, class: "add-category-button" %>
+

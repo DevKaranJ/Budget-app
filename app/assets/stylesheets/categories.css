@@ -1,0 +1,58 @@
+/* styles.css */
+
+/* Category Title */
+.category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Category Card */
+  .category-card {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  /* Category Name */
+  .category-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #3182ce;
+    text-decoration: none;
+  }
+  
+  .category-name:hover {
+    text-decoration: underline;
+  }
+  
+  /* Category Description */
+  .category-description {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Category Total Amount */
+  .category-total-amount {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Add New Category Button */
+  .add-category-button {
+    display: inline-block;
+    background-color: #3182ce;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    margin-top: 1rem;
+  }
+  
+  .add-category-button:hover {
+    background-color: #2c5282;
+  }
+  
