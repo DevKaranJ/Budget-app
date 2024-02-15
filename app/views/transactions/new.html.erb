@@ -19,10 +19,11 @@
 
   <div>
     <%= form.label :category_id, "Category" %>
-    <%= form.collection_select(:category_id, current_user.categories, :id, :name, { }, { class: 'form-control', required: true }) %>
+    <%= form.collection_select(:category_id, current_user.categories, :id, :name, { selected: @category.id }, { class: 'form-control', required: true }) %>
   </div>
 
   <div>
     <%= form.submit "Save" %>
   </div>
 <% end %>
+

@@ -14,14 +14,16 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = @category.transactions.new(transaction_params)
-    @transaction.user_id = @category.user_id # Assign user_id based on the category
+    @transaction = Transaction.new(transaction_params)
+    @transaction.user_id = current_user.id 
+
     if @transaction.save
-      redirect_to category_transactions_path(@category), notice: 'Transaction was successfully created.'
+      redirect_to category_transactions_path(@transaction.category), notice: 'Transaction was successfully created.'
     else
       render :new
     end
   end
+
 
   private
 
