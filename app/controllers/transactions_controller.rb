@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = @category.transactions.order(created_at: :desc)
+    @total_amount = @transactions.sum(:amount)
   end
 
   def new
@@ -26,6 +27,7 @@ class TransactionsController < ApplicationController
 
   def set_category
     @category = current_user.categories.find(params[:category_id])
+    logger.debug "Category: #{@category}"
   end
 
   def transaction_params

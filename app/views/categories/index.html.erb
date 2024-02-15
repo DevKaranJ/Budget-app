@@ -1,18 +1,108 @@
-<%= stylesheet_link_tag 'categories', media: 'all' %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
 
-<% content_for :title, "Categories" %>
+  .category-card {
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .category-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #3182ce;
+    text-decoration: none;
+  }
+
+  .category-name:hover {
+    text-decoration: underline;
+  }
+
+  .category-description {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  .category-total-amount {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .add-category-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: #5fb523;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .add-category-button:hover {
+    background-color: #2c5282;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #3182ce;
+    color: #ffffff;
+  }
+
+  .navbar .app-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .navbar .sign-out-button {
+    background-color: transparent;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+  }
+
+  .navbar .sign-out-button:hover {
+    background-color: #2c5282;
+    color: #ffffff;
+  }
+</style>
+</head>
+<body>
 <nav class="navbar">
-<a href="<%= categories_path %>" class="back-button">
-  <%= image_tag('hammenu.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
-</a>
-<h1 class="category-title">Categories</h1>
+  <span class="app-name">Budget</span>
+  <h1 class="category-title">Categories</h1>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "sign-out-button" %>
 </nav>
+
+
 
 <% @categories.each do |category| %>
   <div class="category-card">
-  <%= image_tag("icon/#{category.icon}", alt: category.name, class: "category-icon", style: "width: 100px; height: 100px;") %>
+    <%= image_tag("icon/#{category.icon}", alt: category.name, class: "category-icon", style: "width: 100px; height: 100px;") %>
     <%= link_to category.name, category_transactions_path(category), class: "category-name" %>  <%= category_total_amount(category) %>
   </div>
 <% end %>
 
-<%= link_to "Add a New Category", new_category_path, class: "add-category-button" %>
+<a href="<%= new_category_path %>" class="add-category-button">Add a New Category</a>
+</body>
+</html>
