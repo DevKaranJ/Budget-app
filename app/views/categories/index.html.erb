@@ -3,16 +3,16 @@
 <% content_for :title, "Categories" %>
 <nav class="navbar">
 <a href="<%= categories_path %>" class="back-button">
-  <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+  <%= image_tag('hammenu.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
 </a>
 <h1 class="category-title">Categories</h1>
 </nav>
 
 <% @categories.each do |category| %>
   <div class="category-card">
-    <%= link_to category.name, category_transactions_path(category), class: "category-icon" %> - <%= category.name %> - Total Amount: <%= category_total_amount(category) %>
+  <%= image_tag("icon/#{category.icon}", alt: category.name, class: "category-icon", style: "width: 100px; height: 100px;") %>
+    <%= link_to category.name, category_transactions_path(category), class: "category-name" %> - Total Amount: <%= category_total_amount(category) %>
   </div>
 <% end %>
 
 <%= link_to "Add a New Category", new_category_path, class: "add-category-button" %>
-

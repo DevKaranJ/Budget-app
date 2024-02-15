@@ -16,6 +16,12 @@
     margin-top: 1rem;
   }
   
+  .category-icon {
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+  }
+  
+
   /* Category Name */
   .category-name {
     font-size: 1rem;
