@@ -11,7 +11,7 @@
 <% @categories.each do |category| %>
   <div class="category-card">
   <%= image_tag("icon/#{category.icon}", alt: category.name, class: "category-icon", style: "width: 100px; height: 100px;") %>
-    <%= link_to category.name, category_transactions_path(category), class: "category-name" %> - Total Amount: <%= category_total_amount(category) %>
+    <%= link_to category.name, category_transactions_path(category), class: "category-name" %>  <%= category_total_amount(category) %>
   </div>
 <% end %>
 
