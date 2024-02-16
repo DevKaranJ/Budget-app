@@ -13,6 +13,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+    - [🚀 Live Demo](#live-demo)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -56,6 +57,15 @@
 - ** Add a new category**
 - **Read all transactions**
 - **Add a new transaction**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://budget-app-n4di.onrender.com)
+- [Live presentation link](https://www.loom.com/share/4ede813f759845cb937d1cd3706cf07d?sid=8dc026e0-2617-44b4-bd11-a0134d6ba662)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
