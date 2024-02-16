@@ -13,11 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  font-family: 'Proxima Nova', sans-serif;
   background-color: #fafafa;
   margin: 0;
   padding: 0;

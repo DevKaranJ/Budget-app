@@ -9,14 +9,19 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check
 
+  devise_scope :user do
   # Conditional root route based on user authentication status
   authenticated :user do
-    root 'home#index', as: :authenticated_root
+    root 'categories#index', as: :authenticated_root
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
-
   unauthenticated do
     root 'splash#index', as: :unauthenticated_root
   end
-
+end
   get 'splash/index'
+
+  resources :categories, only: [:index, :new, :create] do
+    resources :transactions, only: [:index, :new, :create]
+  end
 end

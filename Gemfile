@@ -69,3 +69,7 @@ end
 gem 'devise'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'bootstrap', '~> 5.3.2'
+
+gem 'dartsass-sprockets'
