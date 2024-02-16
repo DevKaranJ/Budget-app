@@ -1,7 +1,7 @@
 databases:
   - name: budget_app
-    databaseName: budget_app_nfl9
-    user: karan
+    databaseName: budget_app_trd4
+    user: budget_app_trd4_user
     plan: free
 
 services:
