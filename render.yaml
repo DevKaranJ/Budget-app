@@ -1,6 +1,6 @@
 databases:
   - name: budget_app
-    databaseName: budget_app
+    databaseName: budget_app_nfl9
     user: karan
     plan: free
 
@@ -11,7 +11,7 @@ services:
     plan: free
     buildCommand: "./bin/render-build.sh"
     # preDeployCommand: "rails db:migrate" # preDeployCommand only available on paid instance types
-    startCommand: "rails server"
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
