@@ -1,5 +1,3 @@
-# app/controllers/categories_controller.rb
-
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   include CategoriesHelper

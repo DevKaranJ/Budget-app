@@ -1,5 +1,3 @@
-# app/controllers/transactions_controller.rb
-
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category
