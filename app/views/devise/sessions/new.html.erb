@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag 'login', media: 'all' %>
+
+<nav class="navbar">
+  <a href="<%= splash_index_path %>" class="back-button">
+    <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+  </a>
+  <h2>Login</h2>
+  <div class="actions">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= button_tag(type: 'submit', class: 'login-button') do %>
+        Log in
+      <% end %>
+    <% end %>
+  </div>
+</nav>
+
+
+
+<div class="form-container">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation' }, role: 'form', novalidate: true) do |f| %>
+    <div>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true, placeholder: 'Email', style: 'border: none; border-bottom: 1px solid #ced4da;' %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', required: true, placeholder: 'Password', style: 'border: none;' %>
+    </div>
+
+
+    <% if Rails.env.test? %>
+    <%= f.submit 'Test Submit', class: 'btn btn-primary' %>
+  <% end %>
+
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

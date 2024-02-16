@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag 'newforms', media: 'all' %>
+
+<nav class="navbar">
+<a href="<%= categories_path %>" class="back-button">
+  <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+</a>
+  <h1>Add New Category</h1>
+</nav>
+<div class="container">
+<%= form_with(model: category, local: true) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :icon %>
+    <%= form.select :icon, options_for_select(Dir.glob('app/assets/images/icon/*.png').map { |path| [File.basename(path, '.*').capitalize, File.basename(path)] }) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+</div>

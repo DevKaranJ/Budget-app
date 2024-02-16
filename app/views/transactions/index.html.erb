@@ -1,0 +1,125 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+  body {
+      font-family: 'Proxima Nova', sans-serif;
+    }
+
+    .transaction-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .transaction-card {
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .transaction-details {
+      font-size: 1rem;
+    }
+
+    .transaction-name {
+      font-weight: bold;
+    }
+
+    .transaction-amount {
+      color: #5fb523;
+    }
+
+    .add-transaction-button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      background-color: #5fb523;
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .add-transaction-button:hover {
+      background-color: #2c5282;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #3182ce;
+      color: #ffffff;
+    }
+
+    .navbar .transaction-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .navbar .back-button {
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    .navbar .back-button:hover {
+      background-color: #2c5282;
+      color: #ffffff;
+
+      .transaction-ti {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+
+      .transaction-ti h2 {
+        font-size: 1.2rem; /* Adjust font size as needed */
+        margin: 0; /* Remove default margin */
+      }
+
+
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="<%= categories_path %>" class="back-button">
+      <%= image_tag('arrow-left.svg', alt: 'Back', style: 'cursor: pointer; width:22px; filter: invert(1);') %>
+    </a>
+    <h1 class="transaction-title">Transaction</h1>
+  </nav>
+
+  <div class="transaction-ti">
+  <%= image_tag("icon/#{@category.icon}", alt: @category.name, class: "category-ic", style: "width: 100px; height: 100px;") %>
+  <h2>Total Amount for <%= @category.name %>: <%= @total_amount %></h2>
+</div>
+
+
+
+
+  <% @transactions.each do |transaction| %>
+    <div class="transaction-card">
+      <div class="transaction-details">
+        <span class="transaction-name"><%= transaction.name %></span>
+         <span class="transaction-amount"><%= transaction.amount %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to "Add a New Transaction", new_category_transaction_path(@category), class: "add-transaction-button" %>
+</body>
+</html>
