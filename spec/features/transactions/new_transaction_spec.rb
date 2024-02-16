@@ -21,7 +21,7 @@ RSpec.feature 'Add New Category Page', type: :feature do
   scenario 'successfully adds a new category' do
     visit new_category_path
     fill_in 'category_name', with: 'Groceries'
-    select "Burger", from: 'category_icon'
+    select 'Burger', from: 'category_icon'
     click_on 'Create Category'
     expect(page).to have_current_path(categories_path)
   end
