@@ -4,6 +4,6 @@ class Category < ApplicationRecord
   has_many :transactions, dependent: :destroy
 
   def self.unique_name(name, icon, user_id)
-    find_by(name: name, icon: icon, user_id: user_id) || new(name: name, icon: icon, user_id: user_id)
+    find_by(name:, icon:, user_id:) || new(name:, icon:, user_id:)
   end
 end

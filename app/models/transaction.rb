@@ -4,6 +4,6 @@ class Transaction < ApplicationRecord
 
   def self.create_with_unique_category(name, amount, category_name)
     category = Category.unique_name(category_name)
-    create(name: name, amount: amount, category: category)
+    create(name:, amount:, category:)
   end
 end

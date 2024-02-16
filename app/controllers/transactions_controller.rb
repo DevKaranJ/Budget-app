@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    @transaction.user_id = current_user.id 
+    @transaction.user_id = current_user.id
 
     if @transaction.save
       redirect_to category_transactions_path(@transaction.category), notice: 'Transaction was successfully created.'
@@ -23,7 +23,6 @@ class TransactionsController < ApplicationController
       render :new
     end
   end
-
 
   private
 
