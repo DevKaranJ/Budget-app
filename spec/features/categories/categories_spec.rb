@@ -13,7 +13,7 @@ RSpec.describe 'Categories', type: :feature do
     end
 
     it 'displays category name and icon' do
-      category = Category.create(name: 'Test Category', icon: 'test-icon.png')
+      Category.create(name: 'Test Category', icon: 'test-icon.png')
       visit categories_path
     end
   end
